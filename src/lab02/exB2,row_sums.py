@@ -1,10 +1,23 @@
 def row_sums(mat: list[list[float | int]]) -> list[float]:
+
+    '''Сумма по каждой строке
+
+    Args: 
+        Матрица 
+
+    Returns:
+        Список сумм 
+
+    Raises:
+        ValueError: 
+            'Рваная матрица'
+    '''
     
     if mat == []:
             return []
     for i in mat:
         if len(i) != len(mat[0]):
-            return ValueError ('Рваная матрица')
+            raise ValueError ('Рваная матрица')
     
     r = []
     for i in range (len(mat)):

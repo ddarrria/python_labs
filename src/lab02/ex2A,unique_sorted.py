@@ -1,5 +1,14 @@
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
 
+    '''Возвращает уникальный отсортированный (по возрастанию) список
+
+    Args:
+        Список чисел (float и int)
+
+    Returns:
+        Cписок
+    '''
+
     for i in nums:
         if nums.count(i)>1:
             while nums.count(i)>1:
