@@ -99,6 +99,30 @@
 **Вывод:**
 ![Скрин 3](../../images/lab03/count_freq.png)
 
+## Мини тесты:
+
+    # normalize
+    assert normalize("ПрИвЕт\nМИр\t") == "привет мир"
+    assert normalize("ёжик, Ёлка") == "ежик, елка"
+
+    # tokenize
+    assert tokenize("привет, мир!") == ["привет", "мир"]
+    assert tokenize("по-настоящему круто") == ["по-настоящему", "круто"]
+    assert tokenize("2025 год") == ["2025", "год"]
+
+    # count_freq + top_n
+    freq = count_freq(["a","b","a","c","b","a"])
+    assert freq == {"a":3, "b":2, "c":1}
+    assert top_n(freq, 2) == [("a",3), ("b",2)]
+
+    # тай-брейк по слову при равной частоте
+    freq2 = count_freq(["bb","aa","bb","aa","cc"])
+    assert top_n(freq2, 2) == [("aa",2), ("bb",2)]
+
+Вывод:
+![Скрин 6](../../images/lab03/test.png)
+
+
 # Задание B — Скрипт статистики src/lab03/text_stats.py
 
 ## Исходный код src/lab03/text_stats.py
@@ -106,8 +130,6 @@
 Водится текст и обрабатываеся функциями. На выходе выводится статистика: сколько всего слов, сколько уникальных слов и топ 5 слов по частоте в виде таблицы.
 
     import sys
-    from pathlib import Path
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
     from src.lib.text import normalize, tokenize, count_freq, top_n
 
