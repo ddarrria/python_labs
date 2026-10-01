@@ -118,6 +118,7 @@
     # тай-брейк по слову при равной частоте
     freq2 = count_freq(["bb","aa","bb","aa","cc"])
     assert top_n(freq2, 2) == [("aa",2), ("bb",2)]
+    print( 'все ок!')
 
 Вывод:
 ![Скрин 6](../../images/lab03/test.png)
