@@ -48,7 +48,7 @@ def format_record(rec: tuple[str, str, float]) -> str:
     fio = rec[0].strip().split()
     for j in fio:
             if not j.replace('-','').isalpha():
-                  raise ValueError('ФИО должно состоять только из букв')
+                  raise TypeError('ФИО должно состоять только из букв')
     surname = fio[0].capitalize()
     name = fio[1]
     group = rec[1]

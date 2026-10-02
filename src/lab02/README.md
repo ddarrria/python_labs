@@ -227,7 +227,7 @@
                 s  = s+ mat[j][i]
             r.append(s)
         return r
-        
+
     print(col_sums([[1, 2, 3], [4, 5, 6]] ))
     print(col_sums([[-1, 1], [10, -10]] ))
     print(col_sums([[0, 0], [0, 0]] ))
@@ -291,7 +291,7 @@
         fio = rec[0].strip().split()
         for j in fio:
                 if not j.replace('-','').isalpha():
-                    raise ValueError('ФИО должно состоять только из букв')
+                    raise TypeError('ФИО должно состоять только из букв')
         surname = fio[0].capitalize()
         name = fio[1]
         group = rec[1]
