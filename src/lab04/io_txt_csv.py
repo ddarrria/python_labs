@@ -3,13 +3,45 @@ from pathlib import Path
 from typing import Iterable, Sequence
 
 def read_text(path: str | Path, encoding: str = "utf-8") -> str:
+
+    """
+    Читает текстовый файл и возвращает содержимое одной строкой
+    
+    Args:
+        path: Путь к файлу в виде строки или объекта Path.
+        encoding: Кодировка файла. По умолчанию UTF-8. 
+                  Для файлов в другой кодировке можно указать, например, encoding='cp1251'
+            
+    Returns:
+        Содержимое файла в виде строки
+    
+    Raises:
+        FileNotFoundError: Если файл не найден.
+        UnicodeDecodeError: Если содержимой файла невозможно декодировать в указанной кодировке"""
+     
     p = Path(path)
     return p.read_text(encoding=encoding)
 
 
 def write_csv(rows: Iterable[Sequence], path: str | Path,
               header: tuple[str, ...] | None = None) -> None:
-    
+
+
+    """
+    Записывает строки rows в CSV-файл path с разделителем ",".
+
+    Если указан header - он записывается первой строкой файла.
+
+    Файл создаётся заново (если его не было) либо полностью
+    перезаписывается (если уже существовал).
+
+    Перед записью проверяется, что все строки в rows имеют одинаковую длину. Если нет - ValueError.
+    Если header задан, его длина должна совпадать с длиной строк.
+
+    Если rows пуст и header=None - создаётся пустой файл (0 строк).
+    Если rows пуст, а header задан - в файле будет только заголовок.
+
+    """
     p = Path(path)
     rows = list(rows)
 
@@ -23,6 +55,7 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
         if header is not None and len(header) != first_rows:
             raise ValueError("Длина header должна совпадать с длиной строк в rows")
 
+     # создаём родительскую папку, если её ещё нет
     p.parent.mkdir(parents=True, exist_ok=True)
 
 

@@ -83,7 +83,21 @@ def top_n(freq: dict[str, int], n: int = 5) -> list[tuple[str, int]]:
 
 if __name__ == '__main__':
 
-   
+    print(normalize("ПрИвЕт\nМИр\t"))
+    print(normalize("ёжик, Ёлка" ))
+    print(normalize("Hello\r\nWorld" ))
+    print(normalize("  двойные   пробелы  " ))
+
+    print(tokenize("привет мир" ))
+    print(tokenize("hello,world!!!" ))
+    print(tokenize("по-настоящему круто" ))
+    print(tokenize("2025 год" ))
+    print(tokenize("emoji 😀 не слово" ))
+
+    print(count_freq(["a","b","a","c","b","a"]))
+    print(count_freq(["bb","aa","bb","aa","cc"]))
+    print(top_n(count_freq(["a","b","a","c","b","a"]), n =2))
+    print(top_n(count_freq(["bb","aa","bb","aa","cc"]), n=2 ))
 
     # normalize
     assert normalize("ПрИвЕт\nМИр\t") == "привет мир"
