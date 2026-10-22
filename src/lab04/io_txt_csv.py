@@ -55,9 +55,9 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
         if header is not None and len(header) != first_rows:
             raise ValueError("Длина header должна совпадать с длиной строк в rows")
 
-     # создаём родительскую папку, если её ещё нет
-    p.parent.mkdir(parents=True, exist_ok=True)
-
+     
+    ensure_parent_dir(path)
+    p = Path(path)
 
     with p.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
@@ -65,6 +65,10 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
             w.writerow(header)
         for r in rows:
             w.writerow(r)
+
+def ensure_parent_dir(path: str | Path) -> None:
+    """Создать родительские директории для path, если их ещё нет."""
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
 
 
 if __name__ == "__main__":
