@@ -173,10 +173,10 @@
 
 ## Политика обработки краевых ситуаций и ошибок
 
-FileNotFoundError — входной файл не найден;
-ValueError — расширение файла не соответствует ожидаемому формату;
-ValueError — JSON пустой, имеет неподдерживаемую структуру или содержит элементы не-словари;
-ValueError — CSV пустой или не содержит строк данных.
+- FileNotFoundError — входной файл не найден.
+- ValueError — расширение файла не соответствует ожидаемому формату;
+- ValueError — JSON пустой, имеет неподдерживаемую структуру или содержит элементы не-словари;
+- ValueError — CSV пустой или не содержит строк данных.
 
 
 
@@ -184,13 +184,13 @@ ValueError — CSV пустой или не содержит строк данн
 
 Для демонстрации используются следующие файлы:
 
-data/samples/people.json — список людей в формате JSON;
-data/samples/people.csv — те же данные в формате CSV;
-data/samples/cities.csv — дополнительный CSV с городами;
+- data/samples/people.json — список людей в формате JSON;
+- data/samples/people.csv — те же данные в формате CSV;
+- data/samples/cities.csv — дополнительный CSV с городами;
 
-data/out/people_from_json.csv — результат JSON → CSV;
-data/out/people_from_csv.json — результат CSV → JSON;
-data/out/people.xlsx — результат CSV → XLSX.
+- data/out/people_from_json.csv — результат JSON → CSV;
+- data/out/people_from_csv.json — результат CSV → JSON;
+- data/out/people.xlsx — результат CSV → XLSX.
 
 
 
