@@ -35,7 +35,7 @@ def bench_sorts():
 
         for name, sort_func in funcs:
             if n <= 10_000 or name == "sorted":
-                time = timeit.timeit(lambda: sort_func(data), number=1)
+                time = timeit.timeit(lambda: sort_func(data), number = 1)
                 rows.append(("sorting", n, name, f"{time:.6f}"))
             else:
                 rows.append(("sorting", n, name, ">60"))
@@ -49,15 +49,15 @@ def bench_search():
     targets = [random.choice(data) for _ in range(10_000)]
 
    
-    time_l_search = timeit.timeit(lambda: [linear_search(data,t) for t in targets],  number =1)
+    time_l_search = timeit.timeit(lambda: [linear_search(data,t) for t in targets],  number = 1)
     rows.append(("search", 100_000, "linear_search", f"{time_l_search:.6f}"))
 
    
-    time_sb_binary = timeit.timeit(lambda: sorted(data), number=1)
+    time_sb_binary = timeit.timeit(lambda: sorted(data), number = 1)
     rows.append(("search", 100_000, "sort_before_binary", f"{time_sb_binary:.6f}"))
     sorted_data= sorted(data)
 
-    time_b_search = timeit.timeit(lambda: [binary_search(sorted_data,t) for t in targets],  number =1)
+    time_b_search = timeit.timeit(lambda: [binary_search(sorted_data,t) for t in targets],  number = 1)
     rows.append(("search", 100_000, "binary_search", f"{time_b_search:.6f}"))
 
     
@@ -66,10 +66,10 @@ def bench_search():
         x, y = random.sample(data_t_sum, 2)
         target = x+y
 
-        time_tsb = timeit.timeit(lambda: two_sum_brute(data_t_sum,target), number=1)
+        time_tsb = timeit.timeit(lambda: two_sum_brute(data_t_sum,target), number = 1)
         rows.append(("search", n, "two_sum_brute", f"{time_tsb:.6f}"))
 
-        time_tsf = timeit.timeit(lambda: two_sum_fast(data_t_sum,target), number=1)
+        time_tsf = timeit.timeit(lambda: two_sum_fast(data_t_sum,target), number = 1)
         rows.append(("search", n, "two_sum_fast", f"{time_tsf:.6f}"))
 
     return rows
