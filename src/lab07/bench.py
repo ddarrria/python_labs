@@ -53,7 +53,7 @@ def bench_search():
     rows.append(("search", 100_000, "linear_search", f"{time_l_search:.6f}"))
 
    
-    time_sb_binary=timeit.timeit(lambda: sorted(data), number=1)
+    time_sb_binary = timeit.timeit(lambda: sorted(data), number=1)
     rows.append(("search", 100_000, "sort_before_binary", f"{time_sb_binary:.6f}"))
     sorted_data= sorted(data)
 
@@ -62,14 +62,14 @@ def bench_search():
 
     
     for n in (1_000,10_000):
-        data_ts = read_numbers(f'data/lab07/samples/{n}_sort.csv')
-        a, b = random.sample(data_ts, 2)
-        target = a+b
+        data_t_sum = read_numbers(f'data/lab07/samples/{n}_sort.csv')
+        x, y = random.sample(data_t_sum, 2)
+        target = x+y
 
-        time_tsb = timeit.timeit(lambda: two_sum_brute(data_ts,target), number=1)
+        time_tsb = timeit.timeit(lambda: two_sum_brute(data_t_sum,target), number=1)
         rows.append(("search", n, "two_sum_brute", f"{time_tsb:.6f}"))
 
-        time_tsf = timeit.timeit(lambda: two_sum_fast(data_ts,target), number=1)
+        time_tsf = timeit.timeit(lambda: two_sum_fast(data_t_sum,target), number=1)
         rows.append(("search", n, "two_sum_fast", f"{time_tsf:.6f}"))
 
     return rows
