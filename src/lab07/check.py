@@ -99,4 +99,4 @@ if __name__== "__main__":
     
     n += check_two_sum()
     
-    print(f"OK, {n} проверок")
+    print(f"OK: {n} проверок")
