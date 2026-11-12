@@ -1,27 +1,6 @@
-[
-  {
-    "name": "Alice",
-    "age": 22,
-    "city": "SPB"
-  },
-  {
-    "name": "Bob",
-    "age": 25,
-    "city": "Moscow"
-  },
-  {
-    "name": "Carlos",
-    "age": 30,
-    "city": "Kazan"
-  },
-  {
-    "name": "Dana",
-    "age": 21,
-    "city": "SPB"
-  },
-  {
-    "name": "Andrey",
-    "age": 27,
-    "city": "Novosibirsk"
-  }
-]
+name,age,city
+Alice,22,SPB
+Bob,25,Moscow
+Carlos,False,Kazan
+Dana,21,SPB
+Andrey,27,Novosibirsk
