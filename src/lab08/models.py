@@ -4,7 +4,7 @@ STUDENT_FIELDS = ("fio", "birthdate", "group", "gpa")
 
 
 def check_fio(value):
-    """fio: строка, после strip() не пустая. Возвращает очищенную строку."""
+    """fio: строка, после strip() не пустая."""
     if not isinstance(value, str):
         raise ValueError(f"получено {type(value)}. ожидается строка")
     if not value.strip():
@@ -29,7 +29,7 @@ def check_birthdate(value):
 
 
 def check_gpa(value):
-    """gpa: int или float, 0 <= gpa <= 5. Возвращает float."""
+    """gpa: int или float, 0 <= gpa <= 5."""
     if isinstance(value,bool) or not isinstance(value, (int, float)):
         raise ValueError("поле gpa: ожидается число (int или float)")
     if not (0 <= value <= 5):
