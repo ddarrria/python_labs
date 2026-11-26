@@ -1,8 +1,5 @@
 # Лабораторная работа №8
 
-Реализована модель `Student` без использования классов. Данные хранятся в словаре с фиксированным набором ключей из `STUDENT_FIELDS`.
-Реализованы проверка данных, вычисление возраста, форматированный вывод, сохранение и загрузка записей в JSON.
-
 ## Задание А модуль models.py
 
 
@@ -20,7 +17,6 @@
             raise ValueError(f": строка не должна быть пустой")
     
 
-
     def check_birthdate(value):
         """birthdate: строка YYYY-MM-DD, существующая дата, не в будущем."""
         if not isinstance(value, str):
@@ -36,14 +32,12 @@
             raise ValueError(f"поле birthdate: дата '{value}' в будущем")
     
 
-
     def check_gpa(value):
         """gpa: int или float, 0 <= gpa <= 5."""
         if isinstance(value,bool) or not isinstance(value, (int, float)):
             raise ValueError("поле gpa: ожидается число (int или float)")
         if not (0 <= value <= 5):
             raise ValueError(f"поле gpa: значение {value} вне диапазона [0;5]")
-    
 
 
     def check_group(value):
@@ -52,7 +46,6 @@
         if not value.strip():
             raise ValueError("group: не должно быть пустым")
     
-
 
     def make_student(fio, birthdate, group, gpa):
         """Собирает запись студента, проверяя каждое поле."""
@@ -68,7 +61,6 @@
             'gpa': float(gpa),
         }
         
-
 
     def validate_student(rec):
         """Проверяет готовую запись: набор ключей и значения. При ошибке - ValueError."""
@@ -97,7 +89,6 @@
         if (today.month, today.day) < (born.month, born.day):  
             age -= 1
         return age
-
 
 
     def format_student(rec):
@@ -214,8 +205,6 @@
         Path(path).parent.mkdir(parents=True, exist_ok=True)
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
-
-
 
 
     def students_from_json(path) -> list[dict]:
