@@ -82,6 +82,13 @@ def validate_student(rec):
 
 def student_age(rec, today=None):
     """Вычисляет полных лет на дату (по умолчанию сегодня)."""
+    if today is None:
+        today = date.today()
+    elif not isinstance(today, str):
+        today = date.fromisoformat(today)
+    elif not isinstance(today, date):
+        raise ValueError("today должно быть объектом date  или строкой")
+  
     born = date.fromisoformat(rec["birthdate"])
     today = today or date.today()
     age = today.year - born.year
