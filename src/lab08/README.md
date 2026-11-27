@@ -89,7 +89,7 @@
             today = date.fromisoformat(today)
         elif not isinstance(today, date):
             raise ValueError("today должно быть объектом date  или строкой")
-            
+
         born = date.fromisoformat(rec["birthdate"])
         today = today or date.today()
         age = today.year - born.year
@@ -261,7 +261,7 @@
     if __name__ == '__main__':
 
         # Чтение и сохранение данных
-        print(f'Чтение из data/lab08/students_input.json, сохранение в data/lab08/students_output.json')
+        print('Чтение из data/lab08/students_input.json, сохранение в data/lab08/students_output.json')
         
         try:
             students_list = students_from_json('data/lab08/students_input.json')
